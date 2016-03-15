@@ -13,9 +13,9 @@ import React, {
 
 import { Provider } from 'react-redux';
 import App from './src/containers/App';
-import configureStore from '../common/store/configureStore';
+import * as common from 'chain-reaction.common';
 
-const store = configureStore();
+const store = common.configureStore();
 
 class chainreaction extends Component {
   render() {
