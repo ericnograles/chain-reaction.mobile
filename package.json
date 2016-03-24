@@ -6,7 +6,6 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
-    "chain-reaction.common": "git://github.com/ericnograles/chain-reaction.common.git",
     "react-native": "^0.21.0",
     "react-redux": "^4.4.1",
     "redux": "^3.3.1",
