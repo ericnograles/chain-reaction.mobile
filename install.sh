@@ -17,6 +17,3 @@ npm3 install
 
 # Symlink the chain-reaction.common library
 npm3 link chain-reaction.common
-
-# React Native Packager
-react-native start
