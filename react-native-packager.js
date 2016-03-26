@@ -4,6 +4,8 @@ var common = path.resolve('../chain-reaction.common');
 var mobile = path.resolve('./');
 var spawn = require('child_process').spawn;
 
+// Note: We need to run the packager in this fashion because we have Redux separated into its own source, and the command below
+// delineates where the common code as well as the mobile project lives
 var reactNativePackager = spawn(mobile + '/node_modules/react-native/packager/packager.sh', ['--projectRoots', common + ',' + mobile]);
 
 reactNativePackager.stdout.setEncoding('utf8');

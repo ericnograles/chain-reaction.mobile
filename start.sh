@@ -17,3 +17,7 @@ npm3 install
 
 # Symlink the chain-reaction.common library
 npm3 link chain-reaction.common
+
+# Launch our custom RN packager and then run iOS
+trap 'kill %1' SIGINT
+(sleep 2 & react-native run-ios) & node react-native-packager.js
