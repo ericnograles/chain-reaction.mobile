@@ -15,6 +15,7 @@ import { Provider } from 'react-redux';
 import App from './src/containers/App';
 import * as common from 'chain-reaction.common';
 
+window.API_PATH = 'http://localhost:1337';
 const store = common.configureStore();
 
 class chainreaction extends Component {

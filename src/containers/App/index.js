@@ -2,43 +2,49 @@ import React, {
   View,
   Text,
   Component,
-  StyleSheet
+  StyleSheet,
+  Navigator
 } from 'react-native';
 
+import StartScreen from '../StartScreen';
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  nav: {
+    flex: 1
+  }
 });
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+  
+  renderScene(route, nav) {
+    if (route.component) {
+      var props = { navigator: nav, route: route };
+      if (route.props) {
+        Object.assign(props, route.props);
+      }
+      return React.createElement(route.component, props);
+    }
+  }
+  
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <Navigator
+        title="Chain Reaction"
+        style={styles.nav}
+        renderScene={this.renderScene}
+        configureScene={(route) => {
+          if (route.sceneConfig) {
+            return route.sceneConfig;
+          }
+          return Navigator.SceneConfigs.FloatFromRight;
+        }}
+        initialRoute={{
+          component: StartScreen, title: 'Login'
+        }}
+      />
     );
   }
 }
