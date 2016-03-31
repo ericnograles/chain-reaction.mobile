@@ -4,10 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "dev": "nodemon --watch ../chain-reaction.common --exec \"npm link ../chain-reaction.common\""
+    "dev": "nodemon --watch ../chain-reaction.common/src --watch ../chain-reaction.common/index.js --exec \"cp -r ../chain-reaction.common/src/ ./chain-reaction.common/\""
   },
   "dependencies": {
-    "chain-reaction.common": "git://github.com/ericnograles/chain-reaction.common.git",
     "react": "^0.14.7",
     "react-native": "^0.22.0",
     "react-redux": "^4.4.1",

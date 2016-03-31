@@ -16,5 +16,5 @@ npm3 install -g react-native-cli
 npm3 install
 
 # Launch iOS, Packager, and Nodemon to watch for changes in chain-reaction.common
-trap 'kill %1' SIGINT
-(sleep 2 & react-native run-ios) & ./node_modules/react-native/packager/packager.sh start --reset-cache
+trap 'kill %1; kill %2' SIGINT
+(sleep 2 & react-native run-ios) & ./node_modules/react-native/packager/packager.sh start --reset-cache & nodemon --watch ../chain-reaction.common/src --watch ../chain-reaction.common/index.js --exec "cp -r ../chain-reaction.common/src/ ./chain-reaction.common/"
