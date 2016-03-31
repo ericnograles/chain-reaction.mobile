@@ -15,9 +15,6 @@ npm3 install -g react-native-cli
 # Local NPM install
 npm3 install
 
-# Symlink the chain-reaction.common library
-npm3 link chain-reaction.common
-
-# Launch our custom RN packager and then run iOS
+# Launch iOS, Packager, and Nodemon to watch for changes in chain-reaction.common
 trap 'kill %1' SIGINT
-(sleep 2 & react-native run-ios) & node react-native-packager.js
+(sleep 2 & react-native run-ios) & ./node_modules/react-native/packager/packager.sh start --reset-cache
