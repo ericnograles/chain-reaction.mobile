@@ -32,3 +32,6 @@ local.properties
 #
 node_modules/
 npm-debug.log
+
+# chain-reaction.common
+chain-reaction.common/
