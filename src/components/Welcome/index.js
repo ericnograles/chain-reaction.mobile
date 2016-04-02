@@ -24,15 +24,15 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class Sample extends Component {
+export default class Welcome extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to Chain Reaction!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.ios.js
+          This is a cross-platform application that runs on Redux, React, and React Native
         </Text>
         <Text style={styles.instructions}>
           Press Cmd+R to reload,{'\n'}

@@ -10,6 +10,7 @@ import React, {
 import { connect } from 'react-redux';
 import * as common from 'chain-reaction.common';
 import Login from '../../components/Login';
+import Dashboard from '../Dashboard';
 
 var window = Dimensions.get('window');
 const styles = StyleSheet.create({
@@ -40,6 +41,14 @@ class StartScreen extends Component {
     this.handleLogin = this.handleLogin.bind(this);
     this.handleEmail = this.handleEmail.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.user.status === 'authenticated') {
+      this.props.navigator.replace({
+        component: Dashboard
+      });
+    }
   }
 
   handleEmail(email) {
