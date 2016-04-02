@@ -8,8 +8,10 @@ import React, {
 } from 'react-native';
 
 import { connect } from 'react-redux';
-import * as common from 'chain-reaction.common';
+import * as common from '../../../chain-reaction.common';
 import Welcome from '../../components/Welcome';
+import Meme from '../../components/Meme';
+import StartScreen from '../StartScreen';
 
 var window = Dimensions.get('window');
 const styles = StyleSheet.create({
@@ -37,14 +39,38 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
   }
+
+  componentDidMount() {
+    this.props.dispatch(common.actions.findMemes());
+  }
+
+  handleLogout() {
+    this.props.dispatch(common.actions.logout());
+    this.props.navigator.replace({
+      component: StartScreen
+    });
+  }
+
+  refreshMemes() {
+    this.props.dispatch(common.actions.findMemes());
+  }
   
 
   render() {
-    const { user } = this.props;
+    const { memes, user } = this.props;
+    var memeImages;
+    if (memes && memes.results) {
+      memeImages = memes.results.map(memeUrl => {
+        return (
+          <Meme url={memeUrl} />
+        );
+      });
+    }
 
     return (
       <View style={styles.container}>
         <Welcome message="Welcome to Chain Reaction!" />
+        {memeImages}
       </View>
     );
   }
@@ -55,8 +81,9 @@ Dashboard.propTypes = {
 };
 
 function mapStateToProps(state) {
-  const { user } = state;
+  const { memes, user } = state;
   return {
+    memes,
     user
   };
 }
