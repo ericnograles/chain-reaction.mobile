@@ -1,5 +1,6 @@
 import React, {
   View,
+  ScrollView,
   Text,
   Component,
   StyleSheet,
@@ -62,16 +63,16 @@ class Dashboard extends Component {
     if (memes && memes.results) {
       memeImages = memes.results.map(memeUrl => {
         return (
-          <Meme url={memeUrl} />
+          <Meme key={memeUrl} url={memeUrl} />
         );
       });
     }
 
     return (
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={[styles.container]}>
         <Welcome message="Welcome to Chain Reaction!" />
         {memeImages}
-      </View>
+      </ScrollView>
     );
   }
 }
