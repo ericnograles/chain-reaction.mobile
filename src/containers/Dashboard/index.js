@@ -8,7 +8,7 @@ import React, {
 } from 'react-native';
 
 import { connect } from 'react-redux';
-import * as common from 'chain-reaction.common';
+import * as common from '../../../chain-reaction.common';
 import Welcome from '../../components/Welcome';
 
 var window = Dimensions.get('window');
