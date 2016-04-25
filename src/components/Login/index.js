@@ -8,7 +8,7 @@ import React, {
   Dimensions
 } from 'react-native';
 
-import * as common from 'chain-reaction.common';
+import * as common from '../../../chain-reaction.common';
 
 var window = Dimensions.get('window');
 const styles = StyleSheet.create({
